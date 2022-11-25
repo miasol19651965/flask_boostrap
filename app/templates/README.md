@@ -31,3 +31,4 @@ flask db migrate -m"mensaje de la migracion"
 ## Levantando la aplicacion
 
 Para ejecutar el servidor de desarrollo el comando es el siguiente.
+flask --app app --debug run
