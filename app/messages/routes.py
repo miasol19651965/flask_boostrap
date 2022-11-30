@@ -1,11 +1,12 @@
-from flask import render_template
+from flask import render_template,request,flash redirect
 from app.messages import bp
 from app.models.message import Message
+from app.extensions import db, migrate
 
 @bp.route('/')
 def index():
     messages = Message.query.all()
-    return render_template('index.html', messages = messages)
+    return render_template('messages/index.html', messages = messages)
 
 @bp.route('/create', methods =('GET', 'POST'))
 def create():
@@ -22,9 +23,9 @@ def create():
             message = Message(title = title, content = content, picture = picture)
             db.session.add(message)
             db.session.commit()
-            return redirect(url_for('index'))
+            return redirect(url_for('messages.index'))
 
-    return render_template('create.html')
+    return render_template('messages/create.html')
 
 
 @bp.route('/<id>/update', methods = ('GET', 'POST'))

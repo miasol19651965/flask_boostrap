@@ -11,7 +11,7 @@ def create_app(config_class=Config):
     migrate.init_app(app,db)
 
     # Register blueprints here
-
+    
     # Main bluepring
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
