@@ -59,3 +59,32 @@ flask --app app --debug run
 ## Tarea
 Crear un nuevo recurso sencillo, sin base de datos, como blueprint bajo url '/memes' y debe renderiar un html lleno de memes.
 
+## MVC (Model-View.Controller)
+
+## Levantar el servidor de desarrollo
+con todo esto
+```bash
+pipenv shell
+pipenv install
+set FLASK_APP=app
+set FLASK_ENV=development
+flask run
+```
+o con la siguiente linea
+'pipenv run flask --app app ..debug run'
+
+Y si tiene el archivo .env con las variables FLASK_DEBUG=1 y FLASK_APP=app, solo debe ejecutar lo siguiente
+
+'flask run'
+
+## blueprints
+
+## MVC
+(Model-View-Controller)
+
+![MVC](https://cdn.educba.com/academy/wp-content/uploads/2019/04/what-is-mvc-design-pattern.jpg.webp)
+
+Es una arquitectura para separar las responsabilidades en la manipulacion de las solicitudes y respuestas. Quien recibe las solicitudes es el controlador  o en flask, las rutas .
+los controladores se encargan de revisar las solicitudes cumpla con las caracteristicas ppara entregar respuestas acorde (que tenga todos los datos) Si el controlador lo permite, se podria opcionalmente llamar al modelo  para obtener o modificar los datos de la BBDO. Y finalmente enviar una respuesta que contenga la presentacion de la aplicacion. En nuestro caso la capa de ppresentacion comunmente conocida como Vistas(views)se llaman Templates.
+
+Por lo tanto en flask el MVC podria ser adaptado como MTR (Modelo, Template,), pero es lo mismo en terminos de separar la responsabilidad.
