@@ -1,6 +1,6 @@
 from flask import Flask
 from config import Config
-from app.extensions import db, migrate
+from app.extensions import db, migrate, login_manager
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -9,8 +9,14 @@ def create_app(config_class=Config):
     # Initialize Flask extensions here
     db.init_app(app)
     migrate.init_app(app,db)
+    login_manager.init_app(app)
 
     # Register blueprints here
+
+    # auth blueprint
+    from app.auth import bp as auth_bp
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+
     # Memes blueprint
     from app.memes import bp as memes_bp
     app.register_blueprint(memes_bp, url_prefix='/memes')
