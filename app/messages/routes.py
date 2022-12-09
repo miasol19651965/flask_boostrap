@@ -1,4 +1,5 @@
 from flask import render_template,request,flash,redirect, url_for
+from flask_login import login_required
 from app.messages import bp
 from app.models.message import Message
 from app.extensions import db, migrate
@@ -6,6 +7,7 @@ from app.extensions import db, migrate
 @bp.route('/')
 def index():
     messages = Message.query.all()
+@login_required    
     return render_template('messages/index.html', messages = messages)
 
 @bp.route('/create', methods =('GET', 'POST'))
