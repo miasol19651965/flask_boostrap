@@ -5,9 +5,9 @@ from app.models.message import Message
 from app.extensions import db, migrate
 
 @bp.route('/')
+@login_required
 def index():
     messages = Message.query.all()
-@login_required    
     return render_template('messages/index.html', messages = messages)
 
 @bp.route('/create', methods =('GET', 'POST'))
