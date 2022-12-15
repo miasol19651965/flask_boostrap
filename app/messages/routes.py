@@ -55,4 +55,4 @@ def delete():
     db.session.delete(message) 
     db.session.commit()
     flash('Mensaje Eliminado')
-    return redirect('/')
+    return redirect('/')  
